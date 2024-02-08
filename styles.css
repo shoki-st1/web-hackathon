@@ -9,29 +9,12 @@ body {
     background-color: #f0f0f0;
 }
 
-.container {
-    position: relative;
+h1 {
+    margin-bottom: 20px;
 }
 
-.blackbeard-image {
+#character-image {
     width: 200px;
-    /* 画像のサイズは適宜調整 */
-}
-
-.text-container {
-    position: absolute;
-    top: 20px;
-    /* テキストの位置を調整 */
-    right: 20px;
-    /* テキストの位置を調整 */
-    text-align: right;
-    /* テキストを右寄せにする */
-}
-
-.button-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
 }
 
 button {
@@ -40,6 +23,7 @@ button {
     border: none;
     border-radius: 5px;
     background-color: #007bff;
+    /* デフォルトの背景色 */
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -47,4 +31,9 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+button.attack-button {
+    background-color: #ff0000;
+    /* 攻撃ボタンの背景色を赤に変更 */
 }
