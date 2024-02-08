@@ -19,16 +19,17 @@ function runAway() {
     playSound("run.mp3"); // 攻撃効果音を再生
     changeImage("ikada.png"); // 逃げる画像に変更
     disableButtons();
+    document.getElementById("retry-button").style.display = "inline-block"; // リトライボタンを表示
 }
 
 // 結果を確認する関数
 function checkResult() {
     if (character.hp <= 0) {
-        displayMessage("黒ひげを倒しました！おめでとうございます！");
-        changeImage("homeless_furousya.png"); // 逃げる画像に変更
+        displayMessage("黒ひげを倒しました！おめでとうございます！\nこれで世界は救われました!!");
+        changeImage("homeless_furousya.png"); // 画像に変更
         disableButtons();
     } else {
-        displayMessage("黒ひげの体力: ???");
+        displayMessage("黒ひげの体力: ???\nまだ余裕がありそうだ");
     }
 }
 
@@ -59,4 +60,27 @@ function changeImage(imagePath) {
 function playSound(soundFile) {
     const audio = new Audio(soundFile);
     audio.play();
+}
+
+// リトライ関数
+function retry() {
+    // ゲームをリセットする処理を追加する（キャラクターの初期化など）
+    character.hp = getRandomNumber(50, 100);
+    document.getElementById("retry-button").style.display = "none"; // リトライボタンを非表示にする
+    document.querySelector('.attack-button').disabled = false; // 攻撃ボタンを有効にする
+    document.querySelector('button:nth-of-type(2)').disabled = false; // 逃げるボタンを有効にする
+    document.getElementById("character-image").src = "kaizoku_man.png"; // 画像を元の黒ひげの画像に戻す
+    document.getElementById("output").innerHTML = ""; // メッセージをクリアする
+}
+
+// 結果を確認する関数
+function checkResult() {
+    if (character.hp <= 0) {
+        displayMessage("黒ひげを倒しました！おめでとうございます！\nこれで世界は救われました!!");
+        changeImage("homeless_furousya.png"); // 画像に変更
+        disableButtons();
+        document.getElementById("retry-button").style.display = "inline-block"; // リトライボタンを表示
+    } else {
+        displayMessage("黒ひげの体力: ???\nまだ余裕がありそうだ");
+    }
 }

@@ -37,3 +37,22 @@ button.attack-button {
     background-color: #ff0000;
     /* 攻撃ボタンの背景色を赤に変更 */
 }
+
+
+#retry-button {
+    background-color: #ffd700;
+    /* 黄色に変更 */
+    color: #000;
+    /* ボタンの文字色を黒にする */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#retry-button:hover {
+    background-color: #ffcc00;
+    /* ホバー時の色を少し暗くする */
+}
